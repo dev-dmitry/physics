@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import InformationBlock from '../elements/ControlPanel/InformationBlock';
-import SingleSettings from './SingleSettings';
 
 class Panel extends Component {
     constructor(props, context) {
@@ -14,13 +13,6 @@ class Panel extends Component {
             duration: 2,
             induction: 5,
             size: 0.1,
-        },
-        itemNew: {
-            quantity: Number,
-            charge: Array,
-            duration: Array,
-            induction: Array,
-            size: Array,
         },
         confines: {
             quantity: {
@@ -128,10 +120,6 @@ class Panel extends Component {
                         </div>
                     </div>
                 </div>
-                <SingleSettings
-                    title={this.props.infoTitle}
-                    text={this.props.infoText}
-                    show={this.state.theoryBlock}></SingleSettings>
                 <InformationBlock
                     title={this.props.infoTitle}
                     text={this.props.infoText}
