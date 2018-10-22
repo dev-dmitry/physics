@@ -1,0 +1,20 @@
+.form-control{
+  margin-bottom: 5px;
+  &__label{
+    color: #fff;
+    font-size: 14px;
+  }
+  &__field{
+    width: 100%;
+    background: #2d353a;
+    border: 2px solid #a1a1a1;
+    box-shadow: none;
+    color: #fff;
+    box-sizing: border-box;
+    padding: 7px 5px;
+    border-radius: 4px;
+    margin-top: 7px;
+    margin-bottom: 10px;
+    height: 32px;
+  }
+}
