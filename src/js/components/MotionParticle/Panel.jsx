@@ -61,7 +61,7 @@ class Panel extends Component {
     };
     render() {
         return (
-            <div className="app__sidebar panel">
+            <div className="app__sidebar panel" id={"js-sidebar"}>
                 <div className="panel__options">
                     <div className="panel__options-content">
                         <div className="panel__title">{this.props.title}</div>
