@@ -26,7 +26,7 @@ class Particles {
     }
     update() {
         for(let i = 0; i < this.countParticles; i++){
-            this.particle.motionParticle(i);
+            this.particle.motionParticle(i );
             const props = this.data.props[i];
             if ( (props.y + props.increase) <= 2 && (props.y + props.increase) >= -2 ){
                 props.y += props.increase;

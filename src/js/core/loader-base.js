@@ -46,7 +46,7 @@ class LoaderBase {
     setupRenderer() {
         this.renderer = new THREE.WebGLRenderer({
             alpha: true,
-            antialias: true
+            antialias: true,
         });
         this.dom.container.appendChild(this.renderer.domElement);
     }
@@ -68,7 +68,7 @@ class LoaderBase {
                 0.1, // 5
                 0.2, // 6
                 0.1, // 7
-                0.1  // 8
+                0.1, // 8
             ];
             this.gridHelper = new THREE.GridHelper(300, 60, 0xffffff, 0xffffff);
             this.gridHelper.material.transparent = true;
@@ -83,7 +83,7 @@ class LoaderBase {
                 0.3, // 5
                 0.6, // 6
                 0.3, // 7
-                0.3  // 8
+                0.3, // 8
             ];
             this.axisHelper = new AxisHelper(150, this.axisOpacityMap[3]);
             this.scene.add(this.axisHelper);
@@ -94,7 +94,7 @@ class LoaderBase {
         this.renderer.render(this.scene, this.camera);
     }
     listen() {
-        window.addEventListener('resize', (e) => this.onResize(e));
+        window.addEventListener('resize', e => this.onResize(e));
     }
     onResize() {
         this.width = window.innerWidth - this.dom.sidebar.offsetWidth;
@@ -108,7 +108,7 @@ class LoaderBase {
         this.renderer.setSize(this.width, this.height);
         this.updateBase();
     }
-    stop(){
+    stop() {
         cancelAnimationFrame(this.raf);
     }
     loop() {
@@ -118,5 +118,4 @@ class LoaderBase {
         this.raf = window.requestAnimationFrame(() => this.loop());
     }
 }
-
 export default LoaderBase;
