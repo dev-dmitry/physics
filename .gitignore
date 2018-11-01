@@ -7,10 +7,10 @@
 /coverage
 
 # production
-/public
+public/
 
 
-/.idea
+.idea/
 
 # misc
 .DS_Store
