@@ -1,3 +1,4 @@
+const isProd = process.env.NODE_ENV === 'production';
 module.exports = {
     entry: './src/js/main.js',
     output: {
@@ -36,7 +37,4 @@ module.exports = {
         extensions: ['*', '.js', '.jsx']
     },
     devtool: 'source-map',
-   /* devServer: {
-        contentBase: './public'
-    }*/
 };

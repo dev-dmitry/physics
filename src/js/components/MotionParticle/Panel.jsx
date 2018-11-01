@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import InformationBlock from '../elements/ControlPanel/InformationBlock';
+import InformationBlock from '../Components/InformationBlock';
 
 class Panel extends Component {
     constructor(props, context) {
@@ -17,7 +17,7 @@ class Panel extends Component {
         confines: {
             quantity: {
                 min: 1,
-                max: 160,
+                max: 16000,
             },
             duration: {
                 min: 1,
@@ -42,12 +42,12 @@ class Panel extends Component {
         this.state.item[name] = this.getConfines(event.target.value, name);
         this.forceUpdate();
     };
-    getConfines = (val, name)=>{
+    getConfines = (val, name) => {
         const confines = this.state.confines[name];
         let value = Number(val.replace(this.mask, ''));
-        if(confines){
-            if( value < confines.min ) value = confines.min;
-            if( value > confines.max ) value = confines.max;
+        if (confines) {
+            if (value < confines.min) value = confines.min;
+            if (value > confines.max) value = confines.max;
         }
         return value
     };
@@ -59,6 +59,7 @@ class Panel extends Component {
             theoryBlock: !this.state.theoryBlock
         });
     };
+
     render() {
         return (
             <div className="app__sidebar panel" id={"js-sidebar"}>
@@ -116,7 +117,8 @@ class Panel extends Component {
                             </div>
                             <button
                                 onClick={this.init}
-                                className="btn btn--secondary">Запустить</button>
+                                className="btn btn--secondary">Запустить
+                            </button>
                         </div>
                     </div>
                 </div>

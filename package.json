@@ -1,5 +1,5 @@
 {
-  "name": "untitled",
+  "name": "Physics",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "webpack --mode development --watch",
-    "build": "webpack --mode production",
+    "prod": "webpack --mode production",
     "prettier": "prettier --single-quote --trailing-comma es5 --write src/**/*.js"
   },
   "devDependencies": {
