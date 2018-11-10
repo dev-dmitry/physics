@@ -3,9 +3,6 @@ import React, {Component} from 'react';
 class InformationBlock extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            open: this.props.show ? 'description-open' : ''
-        };
     }
     render() {
         return (

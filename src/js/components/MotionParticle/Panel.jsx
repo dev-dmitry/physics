@@ -5,35 +5,41 @@ class Panel extends Component {
     constructor(props, context) {
         super(props, context);
         this.mask = new RegExp(`[^0-9.]`, 'g');
+        this.state = {
+            item: {
+                quantity: 3,
+                charge: 1,
+                duration: 2,
+                induction: 5,
+                size: 0.1,
+            },
+            confines: {
+                quantity: {
+                    min: 1,
+                    max: 50,
+                },
+                duration: {
+                    min: 1,
+                    max: 10,
+                },
+                induction: {
+                    min: 1,
+                    max: 20,
+                },
+                size: {
+                    min: 0.05,
+                    max: 0.5,
+                },
+            },
+            theoryBlock: false
+        };
+        //TODO обращаться к элементу не через дом модель
+        setTimeout(()=>{
+            const main = document.querySelector('.app__main');
+            main.addEventListener('click', () => this.offTheory())
+        }, 0)
     }
-    state = {
-        item: {
-            quantity: 3,
-            charge: 1,
-            duration: 2,
-            induction: 5,
-            size: 0.1,
-        },
-        confines: {
-            quantity: {
-                min: 1,
-                max: 16000,
-            },
-            duration: {
-                min: 1,
-                max: 10,
-            },
-            induction: {
-                min: 1,
-                max: 20,
-            },
-            size: {
-                min: 0.05,
-                max: 0.5,
-            },
-        },
-        theoryBlock: false
-    };
+
     handleChange = name => event => {
         this.state.item[name] = event.target.value;
         this.forceUpdate();
@@ -57,6 +63,11 @@ class Panel extends Component {
     toggleTheory = () => {
         this.setState({
             theoryBlock: !this.state.theoryBlock
+        });
+    };
+    offTheory = () => {
+        this.setState({
+            theoryBlock: false
         });
     };
 
@@ -125,7 +136,7 @@ class Panel extends Component {
                 <InformationBlock
                     title={this.props.infoTitle}
                     text={this.props.infoText}
-                    show={this.state.theoryBlock}></InformationBlock>
+                    show={this.state.theoryBlock}/>
             </div>
         );
     }
