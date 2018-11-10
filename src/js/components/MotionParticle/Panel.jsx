@@ -70,7 +70,6 @@ class Panel extends Component {
             theoryBlock: false
         });
     };
-
     render() {
         return (
             <div className="app__sidebar panel" id={"js-sidebar"}>
