@@ -1,19 +1,27 @@
 @import '_vars';
 
 @mixin respond-to($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media #{inspect(map-get($breakpoints, $breakpoint))} {
-      @content;
-    }
-  } @else {
-    @error 'Не указано значение для `#{$breakpoint}`. '
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    } @else {
+        @error 'Не указано значение для `#{$breakpoint}`. '
          + 'Пожалуйста, убедитесь, что точка остановки объявлена в карте `$breakpoints`.';
-  }
+    }
 }
 
 @mixin placeholder {
-  &::-webkit-input-placeholder { @content; }
-  &:-moz-placeholder           { @content; }
-  &::-moz-placeholder          { @content; }
-  &:-ms-input-placeholder      { @content; }
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
 }

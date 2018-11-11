@@ -1,21 +1,18 @@
 import * as THREE from 'three';
 
-class Circle{
-    constructor(data, scene){
+class Circle {
+    constructor(data, scene) {
         this.scene = scene;
         this.data = data;
     }
-    createCircle(i){
+    createCircle(i) {
         this.data.meshCircle[i] = new THREE.Object3D();
         this.data.meshCircle[i].add(
-            new THREE.Line(
-                new THREE.Geometry(),
-                new THREE.LineBasicMaterial({ color: 0xffffff })
-            )
+            new THREE.Line(new THREE.Geometry(), new THREE.LineBasicMaterial({ color: 0xffffff })),
         );
         Object.assign(this.data.meshCircle[i].position, this.data.props[i].position);
         this.scene.add(this.data.meshCircle[i]);
-        this.motionCircle(i)
+        this.motionCircle(i);
     }
     motionCircle(i) {
         const data = {
@@ -49,9 +46,6 @@ class Circle{
 }
 
 export default Circle;
-
-
-
 
 //TODO наклоны
 /*this.data.meshCircle[i].quaternion._x = this.data.props[i].rotate.x;

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class InformationBlock extends Component {
     constructor(props) {
@@ -7,7 +7,9 @@ class InformationBlock extends Component {
     render() {
         return (
             <div className={`description ${this.props.show ? 'description-open' : ''}`}>
-                <div className="description__back"><i className="fa fa-arrow-left" aria-hidden="true"></i></div>
+                <div className="description__back">
+                    <i className="fa fa-arrow-left" aria-hidden="true" />
+                </div>
                 <div className="description__content">
                     <div>
                         <span className="description__content-entity">Теория</span>

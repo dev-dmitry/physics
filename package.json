@@ -10,7 +10,14 @@
     "scripts": {
         "dev": "webpack --mode development --watch",
         "prod": "npm run prettier && webpack --mode production",
-        "prettier": "prettier --single-quote --trailing-comma es5 --write src/**/*.{jsx, js, scss}"
+        "pretty": "prettier --write \"src/**/*.+(scss|js|jsx)\"",
+        "precommit": "lint-staged"
+    },
+    "lint-staged": {
+        "*.js": [
+            "npm run pretty",
+            "git add"
+        ]
     },
     "devDependencies": {
         "@babel/core": "^7.1.2",
@@ -35,12 +42,5 @@
         "webpack": "^4.20.2",
         "webpack-cli": "^3.1.1",
         "webpack-dev-server": "^3.1.9"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "pretty-quick --staged",
-            "pre-push": "",
-            "pre-pull": ""
-        }
     }
 }

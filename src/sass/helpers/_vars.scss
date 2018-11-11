@@ -12,7 +12,6 @@ $trietary-color-light: #5d7887;
 $trietary-color-lighter: #afbdc4;
 $trietary-color-lightest: #eceff1;
 
-
 $grey-light: #e3e3e3;
 $grey-lighter: #fafafa;
 
@@ -30,7 +29,13 @@ $width-tablet: 768px;
 $width-desktop: 1180px;
 
 $breakpoints: (
-        'small': (max-width: $width-tablet),
-        'medium': (min-width: $width-tablet),
-        'large': (min-width: $width-desktop)
+    'small': (
+        max-width: $width-tablet,
+    ),
+    'medium': (
+        min-width: $width-tablet,
+    ),
+    'large': (
+        min-width: $width-desktop,
+    ),
 );
