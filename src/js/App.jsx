@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MotionParticle from './components/MotionParticle/Index';
+import MotionParticle from './modules/MotionParticle/Index';
 
 class App extends Component {
     constructor(props) {

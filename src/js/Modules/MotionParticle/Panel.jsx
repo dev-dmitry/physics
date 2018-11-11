@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import InformationBlock from '../Components/InformationBlock';
+import InformationBlock from '../../Components/InformationBlock';
 
 class Panel extends Component {
     constructor(props, context) {
@@ -67,6 +67,8 @@ class Panel extends Component {
     };
     offTheory = () => {
         this.setState({
+
+
             theoryBlock: false
         });
     };
