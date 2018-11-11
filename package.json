@@ -9,7 +9,7 @@
     },
     "scripts": {
         "dev": "webpack --mode development --watch",
-        "prod": "npm run prettier && webpack --mode production",
+        "prod": "kwebpack --mode production",
         "pretty": "prettier --write \"src/**/*.+(scss|js|jsx)\"",
         "precommit": "lint-staged"
     },
