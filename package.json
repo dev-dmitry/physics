@@ -14,7 +14,7 @@
         "precommit": "lint-staged"
     },
     "lint-staged": {
-        "*.js": [
+        "*.+(scss|js|jsx)": [
             "npm run pretty",
             "git add"
         ]
