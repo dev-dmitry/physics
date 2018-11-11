@@ -38,8 +38,9 @@
   },
     "husky": {
       "hooks": {
-        "pre-commit": "prettier --single-quote --trailing-comma es5 --write src/**/*.js",
-        "pre-push": "prettier --single-quote --trailing-comma es5 --write src/**/*.js"
+        "pre-commit": "",
+        "pre-push": "",
+        "pre-pull": "prettier --single-quote --trailing-comma es5 --write src/**/*.js"
       }
     }
 }

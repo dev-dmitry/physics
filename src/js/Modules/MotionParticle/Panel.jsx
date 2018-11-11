@@ -69,6 +69,8 @@ class Panel extends Component {
         this.setState({
 
 
+
+
             theoryBlock: false
         });
     };
