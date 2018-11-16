@@ -31,7 +31,12 @@ class Panel extends Component {
                         <button className="panel__btn" onClick={this.toggleTheory}>
                             Теория >
                         </button>
-                        <Settings updateData={this.props.updateData} />
+                        <Settings
+                            item={this.props.item}
+                            confines={this.props.confines}
+                            fields={this.props.fields}
+                            updateData={this.props.updateData}
+                        />
                     </div>
                 </div>
                 <InformationBlock
