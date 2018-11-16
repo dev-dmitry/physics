@@ -1,13 +1,13 @@
 const devMode = process.env.NODE_ENV !== 'production';
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
-    entry: './src/js/app.js',
+    entry: './src/js/main.js',
     output: {
         path: path.resolve(__dirname, 'public'),
-        filename: '[name].[chunkhash].js'
+        filename: '[name].js',
     },
     module: {
         rules: [
@@ -17,23 +17,18 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {
                     cacheDirectory: true,
-                    presets: [
-                        "@babel/preset-env",
-                        "@babel/preset-react"
-                    ],
-                    plugins: [
-                        '@babel/plugin-proposal-class-properties'
-                    ]
-                }
+                    presets: ['@babel/preset-env', '@babel/preset-react'],
+                    plugins: ['@babel/plugin-proposal-class-properties'],
+                },
             },
             {
                 test: /\.scss$/,
-                use:  [  'style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-            }
-        ]
+                use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+            },
+        ],
     },
     plugins: [
-        new CleanWebpackPlugin('public', {} ),
+        new CleanWebpackPlugin('public', {}),
         new MiniCssExtractPlugin({
             filename: 'style.[contenthash].css',
         }),
@@ -41,12 +36,12 @@ module.exports = {
             inject: false,
             hash: true,
             template: './src/index.html',
-            filename: 'index.html'
-        })
+            filename: 'index.html',
+        }),
     ],
     devtool: 'source-map',
     performance: { hints: false },
     resolve: {
-        extensions: ['*', '.js', '.jsx', 'scss']
+        extensions: ['*', '.js', '.jsx', 'scss'],
     },
 };

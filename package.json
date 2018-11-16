@@ -8,8 +8,8 @@
         "react-scripts": "2.0.5"
     },
     "scripts": {
-        "dev": "webpack --mode development --watch",
-        "prod": "kwebpack --mode production",
+        "dev": "webpack --watch --mode development",
+        "prod": "webpack --mode production",
         "pretty": "prettier --write \"src/**/*.+(scss|js|jsx)\"",
         "precommit": "lint-staged"
     },

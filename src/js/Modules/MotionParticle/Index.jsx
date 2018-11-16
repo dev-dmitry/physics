@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Canvas from '../Components/Canvas';
+import Canvas from '../../Components/Canvas';
 import Panel from './Panel';
 import Loader from './code/loader';
 
@@ -17,10 +17,12 @@ class MotionParticle extends Component {
             this.loader = new Loader();
         }, 0);
     }
+
     updateData = value => {
         this.setState({ data: value });
         this.loader.init(value);
     };
+
     render() {
         return (
             <div>
