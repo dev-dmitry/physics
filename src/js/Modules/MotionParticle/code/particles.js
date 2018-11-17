@@ -1,5 +1,5 @@
-import Circle from './circle';
-import Particle from './particle';
+import Circle from './Circle';
+import Particle from './Particle';
 
 class Particles {
     constructor(scene) {

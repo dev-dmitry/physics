@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Label from './Label';
+import Label from '../Label';
 class Input extends Component {
     constructor(props) {
         super(props);

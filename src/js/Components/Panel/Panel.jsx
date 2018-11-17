@@ -8,11 +8,11 @@ class Panel extends Component {
         this.state = {
             theoryBlock: false,
         };
+    }
+    componentDidMount() {
         //TODO обращаться к элементу не через дом модель
-        setTimeout(() => {
-            const main = document.querySelector('.app__main');
-            main.addEventListener('click', () => this.toggleTheory(true));
-        }, 0);
+        const main = document.querySelector('.app__main');
+        main.addEventListener('click', () => this.toggleTheory(true));
     }
 
     toggleTheory = off => {

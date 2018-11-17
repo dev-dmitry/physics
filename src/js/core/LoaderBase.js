@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 let OrbitControls = require('three-orbit-controls')(THREE);
-import AxisHelper from './utils/axis';
+import AxisHelper from './Utils/Axis';
 
 class LoaderBase {
     constructor() {

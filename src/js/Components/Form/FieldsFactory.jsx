@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Input from './Input';
-import Select from './Select';
+import Input from './Fields/Input';
+import Select from './Fields/Select';
 
 class FieldsFactory extends Component {
     constructor(props) {

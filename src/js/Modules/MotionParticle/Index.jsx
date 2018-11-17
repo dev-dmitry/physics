@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Canvas from '../../Components/Canvas/Canvas';
 import Panel from '../../Components/Panel/Panel';
-import Loader from './code/loader';
-import { data } from './data';
+import Loader from './Code/Loader';
+import { data } from './Store';
 
 class MotionParticle extends Component {
     constructor(props) {
@@ -15,9 +15,10 @@ class MotionParticle extends Component {
             confines: data.confines,
             fields: data.fields,
         };
-        setTimeout(() => {
-            this.loader = new Loader();
-        }, 0);
+        this.loader = null;
+    }
+    componentDidMount() {
+        this.loader = new Loader();
     }
 
     updateData = value => {

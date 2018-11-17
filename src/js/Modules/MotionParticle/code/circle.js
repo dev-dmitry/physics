@@ -46,8 +46,3 @@ class Circle {
 }
 
 export default Circle;
-
-//TODO наклоны
-/*this.data.meshCircle[i].quaternion._x = this.data.props[i].rotate.x;
-this.data.meshCircle[i].quaternion._y = this.data.props[i].rotate.y;
-this.data.meshCircle[i].quaternion._z = this.data.props[i].rotate.z;*/

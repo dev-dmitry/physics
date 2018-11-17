@@ -1,6 +1,6 @@
-import LoaderBase from '../../../core/loader-base';
-import Particles from './particles';
-import Data from './collectData';
+import LoaderBase from '../../../Core/LoaderBase';
+import Particles from './Particles';
+import Data from './CollectData';
 
 class Loader extends LoaderBase {
     constructor() {
