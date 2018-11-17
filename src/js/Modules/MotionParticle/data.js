@@ -24,7 +24,6 @@ export const data = {
                 </p>
             </span>`,
     },
-    data: null,
     item: {
         quantity: 3,
         charge: 1,
