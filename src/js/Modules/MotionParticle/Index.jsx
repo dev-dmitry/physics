@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Canvas from '../../Components/Canvas';
-import Panel from './Panel';
+import Canvas from '../../Components/Canvas/Canvas';
+import Panel from '../../Components/Panel/Panel';
 import Loader from './code/loader';
 import { data } from './data';
 

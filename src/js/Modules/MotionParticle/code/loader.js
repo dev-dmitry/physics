@@ -13,7 +13,6 @@ class Loader extends LoaderBase {
         this.stop();
         const collect = this.collectData.collect(data);
         this.particles.init(collect);
-
         this.loop();
     }
     update() {

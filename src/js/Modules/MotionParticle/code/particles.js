@@ -18,8 +18,8 @@ class Particles {
         this.clear();
         for (let i = 0; i < this.countParticles; i++) {
             this.data.props.push(data[i]);
-            this.data.mesh.push(0);
-            this.data.meshCircle.push(0);
+            this.data.mesh.push(null);
+            this.data.meshCircle.push(null);
             this.particle.createParticles(i, this.data);
             this.circle.createCircle(i);
         }
@@ -38,12 +38,15 @@ class Particles {
         }
     }
     clear() {
-        for (let i = 0; i < this.data.meshCircle.length; i++) {
-            this.scene.remove(this.data.meshCircle[i], this.data.mesh[i]);
-        }
+        this.removeScene();
         this.data.props = [];
         this.data.mesh = [];
         this.data.meshCircle = [];
+    }
+    removeScene() {
+        this.data.meshCircle.forEach((el, i) => {
+            this.scene.remove(this.data.meshCircle[i], this.data.mesh[i]);
+        });
     }
 }
 
