@@ -52,20 +52,33 @@ export const data = {
     },
     fields: [
         {
+            type: 'input',
             name: 'quantity',
             label: 'Колличество частиц, ед',
         },
         {
+            type: 'input',
             name: 'size',
             label: 'Размер частиц',
         },
         {
+            type: 'input',
             name: 'duration',
             label: 'Скорость, Мм/сек',
         },
         {
+            type: 'input',
             name: 'induction',
             label: 'Индукция магнитного поля, 10 <sup>−5</sup> Тл',
+        },
+        {
+            type: 'select',
+            options: {
+                1: 'Положительный',
+                0: 'Отрицательный',
+            },
+            name: 'charge',
+            label: 'Заряд частиц',
         },
     ],
 };

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import InputWrapper from '../../Components/Form/InputWrapper';
-import SelectWrapper from '../../Components/Form/SelectWrapper';
+import FieldsFactory from '../../Components/Form/FieldsFactory';
 
 class Settings extends Component {
     constructor(props) {
@@ -40,21 +39,14 @@ class Settings extends Component {
                 <div className="settings__title">Параметры</div>
                 <div className="settings__field">
                     {this.state.fields.map((key, i) => (
-                        <InputWrapper
+                        <FieldsFactory
                             key={i}
-                            label={key.label}
-                            type="text"
+                            data={key}
                             value={this.state.item[key.name]}
                             onChange={this.handleChange(key.name)}
                             onBlur={this.onBlur(key.name)}
                         />
                     ))}
-                    <SelectWrapper
-                        label={'Заряд частиц'}
-                        value={this.state.item.charge}
-                        onChange={this.handleChange('charge')}
-                        onBlur={this.onBlur('charge')}
-                    />
                 </div>
                 <button onClick={this.init} className="btn btn--secondary">
                     Запустить

@@ -30,8 +30,7 @@ class MotionParticle extends Component {
             <div>
                 <Panel
                     title={this.state.title}
-                    infoTitle={this.state.theory.title}
-                    infoText={this.state.theory.text}
+                    theory={this.state.theory}
                     updateData={this.updateData}
                     item={this.state.item}
                     confines={this.state.confines}

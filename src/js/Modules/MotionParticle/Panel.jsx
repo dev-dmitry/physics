@@ -39,11 +39,7 @@ class Panel extends Component {
                         />
                     </div>
                 </div>
-                <InformationBlock
-                    title={this.props.infoTitle}
-                    text={this.props.infoText}
-                    show={this.state.theoryBlock}
-                />
+                <InformationBlock theory={this.props.theory} show={this.state.theoryBlock} />
             </div>
         );
     }
