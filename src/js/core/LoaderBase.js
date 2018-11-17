@@ -11,6 +11,9 @@ class LoaderBase {
         };
         this.dom.html.classList.add('loading');
         this.raf = null;
+        this.setup();
+    }
+    setup() {
         this.setupDebug();
         this.setupScene();
         this.setupCamera();
@@ -19,6 +22,18 @@ class LoaderBase {
         this.setupHelpers();
         this.listen();
         this.onResize();
+    }
+    render() {
+        this.renderer.render(this.scene, this.camera);
+    }
+    stop() {
+        cancelAnimationFrame(this.raf);
+    }
+    loop() {
+        this.updateBase();
+        this.update();
+        this.render();
+        this.raf = window.requestAnimationFrame(() => this.loop());
     }
     updateBase() {
         if (this.isOrbit) {
@@ -90,9 +105,6 @@ class LoaderBase {
             this.camera.lookAt(new THREE.Vector3());
         }
     }
-    render() {
-        this.renderer.render(this.scene, this.camera);
-    }
     listen() {
         window.addEventListener('resize', e => this.onResize(e));
     }
@@ -107,15 +119,6 @@ class LoaderBase {
         this.renderer.setPixelRatio(this.dpr);
         this.renderer.setSize(this.width, this.height);
         this.updateBase();
-    }
-    stop() {
-        cancelAnimationFrame(this.raf);
-    }
-    loop() {
-        this.updateBase();
-        this.update();
-        this.render();
-        this.raf = window.requestAnimationFrame(() => this.loop());
     }
 }
 export default LoaderBase;

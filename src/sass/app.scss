@@ -4,27 +4,3 @@
 @import 'helpers/mixins';
 @import 'layout/layout';
 @import 'elements';
-
-html,
-body {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    margin: 0;
-    background: #007a78;
-    display: flex;
-
-    min-height: 100vh;
-    flex-direction: column;
-}
-*,
-*:before,
-*:after {
-    -webkit-box-sizing: inherit;
-    box-sizing: inherit;
-}
-input {
-    box-sizing: border-box;
-}
-a {
-    text-decoration: none;
-}
