@@ -1,6 +1,5 @@
 import Circle from './Circle';
 import Particle from './Particle';
-
 class Particles {
     constructor(scene) {
         this.data = {
@@ -8,6 +7,7 @@ class Particles {
             mesh: [],
             meshCircle: [],
         };
+        console.log('part3');
         this.countParticles = Number;
         this.scene = scene;
         this.circle = new Circle(this.data, this.scene);

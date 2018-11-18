@@ -9,6 +9,7 @@ class LoaderBase {
             container: document.querySelector('.loader'),
             sidebar: document.querySelector('#js-sidebar'),
         };
+        console.log('loader');
         this.dom.html.classList.add('loading');
         this.raf = null;
         this.setup();

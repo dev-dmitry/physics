@@ -1,13 +1,17 @@
-const devMode = process.env.NODE_ENV !== 'production';
+const prod = process.env.NODE_ENV === 'production';
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const hash = {
+    js: prod ? '[chunkhash].' : '',
+    css: prod ? '[contenthash].' : '',
+};
 module.exports = {
     entry: './src/js/main.js',
     output: {
         path: path.resolve(__dirname, 'public'),
-        filename: '[name].js',
+        filename: `[name].${hash.js}js`,
     },
     module: {
         rules: [
@@ -28,9 +32,11 @@ module.exports = {
         ],
     },
     plugins: [
-        /* new CleanWebpackPlugin('public', {}),*/
+        new CleanWebpackPlugin('public', {
+            dry: !prod,
+        }),
         new MiniCssExtractPlugin({
-            filename: 'style.[contenthash].css',
+            filename: `style.${hash.css}css`,
         }),
         new HtmlWebpackPlugin({
             inject: false,

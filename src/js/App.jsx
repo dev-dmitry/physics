@@ -9,5 +9,4 @@ class App extends Component {
         return <MotionParticle />;
     }
 }
-
 export default App;
