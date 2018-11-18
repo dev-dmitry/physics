@@ -3,25 +3,30 @@ class Data {
         this.coordinateQuarter = [90, 180, 270, 360];
         this.maxDuration = 15;
         this.maxRadius = 15;
-        this.angleRotation = Math.PI / 180;
+        let angleRotation = Math.PI / 180;
+        this.angle = {
+            x: angleRotation,
+            y: angleRotation,
+            z: angleRotation,
+        }
     }
-    collect(data) {
-        const gapsDegrees = 360 / data.quantity;
-        const induction = 5 / data.induction;
+    collect({charge, duration, induction, quantity, size}) {
+        const gapsDegrees = 360 / quantity;
+        const inductionValue = 5 / induction;
         let degree = 0;
         let options = [];
-        for (let i = 0; i < data.quantity; i++) {
+        for (let i = 0; i < quantity; i++) {
             let degreeThis = (degree += gapsDegrees);
             const quarter = this.getCoordinateQuarter(degreeThis);
             const rotateValue = this.getRotateValue(quarter, degreeThis);
-            const radius = this.getRadius(data, induction);
+            const radius = this.getRadius(duration, inductionValue);
             const { sign, signAngle } = this.getSigns(quarter);
-            const aClockwise = data.charge ? !(sign > 0) : sign > 0;
-            const increase = (radius / 180) * (data.charge ? sign : signAngle);
+            const aClockwise = charge ? !(sign > 0) : sign > 0;
+            const increase = (radius / 180) * (charge ? sign : signAngle);
             options.push({
-                charge: data.charge,
+                charge: charge,
                 radius: radius * sign,
-                size: data.size,
+                size: size,
                 increase: increase,
                 aClockwise: aClockwise,
                 position: {
@@ -34,11 +39,7 @@ class Data {
                     y: -physics.inRad(rotateValue),
                     z: 0,
                 },
-                angle: {
-                    x: this.angleRotation,
-                    y: this.angleRotation,
-                    z: this.angleRotation,
-                },
+                angle: {...this.angle},
                 y: 0,
             });
         }
@@ -59,8 +60,8 @@ class Data {
             return 0;
         }
     }
-    getRadius(data, induction) {
-        return (data.duration / this.maxDuration) * this.maxRadius * induction;
+    getRadius(duration, induction) {
+        return (duration / this.maxDuration) * this.maxRadius * induction;
     }
     getSigns(quarter) {
         const quarterSign = quarter === 1 || quarter === 3;
