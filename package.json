@@ -11,13 +11,6 @@
         "dev": "webpack --mode development --watch",
         "prod": "webpack --mode production",
         "pretty": "prettier --write \"src/**/*.+(scss|js|jsx)\"",
-        "precommit": "lint-staged"
-    },
-    "lint-staged": {
-        "*.+(scss|js|jsx)": [
-            "npm run pretty",
-            "git add"
-        ]
     },
     "devDependencies": {
         "@babel/core": "^7.1.2",
