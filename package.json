@@ -10,7 +10,7 @@
     "scripts": {
         "dev": "webpack --mode development --watch",
         "prod": "webpack --mode production",
-        "pretty": "prettier --write \"src/**/*.+(scss|js|jsx)\"",
+        "pretty": "prettier --write \"src/**/*.+(scss|js|jsx)\""
     },
     "devDependencies": {
         "@babel/core": "^7.1.2",
