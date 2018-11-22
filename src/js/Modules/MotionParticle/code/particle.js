@@ -1,6 +1,7 @@
 import * as THREE from 'three';
+import { Calc } from '../../../Core/Calc';
 
-class Particle {
+export class Particle {
     constructor(data, scene) {
         this.scene = scene;
         this.data = data;
@@ -15,7 +16,7 @@ class Particle {
     motionParticle(i) {
         let data = {
             i: i,
-            radius: Math.abs(physics.inRad(this.data.props[i].radius)),
+            radius: Math.abs(Calc.inRad(this.data.props[i].radius)),
             angle: this.data.props[i].angle,
             charge: this.data.props[i].charge,
         };
@@ -33,8 +34,6 @@ class Particle {
     getSquare(i, axis, horizontal) {
         const props = this.data.props[i];
         const divider = horizontal ? props.position[axis] / Math.abs(props.radius) : 1;
-        return divider * physics.inRad(props.radius ** 2);
+        return divider * Calc.inRad(props.radius ** 2);
     }
 }
-
-export default Particle;

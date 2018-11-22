@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 let OrbitControls = require('three-orbit-controls')(THREE);
-import AxisHelper from './Utils/Axis';
+import { AxisHelper } from './Utils/Axis';
 
-class LoaderBase {
+export class LoaderBase {
     constructor() {
         this.dom = {
             html: document.documentElement,
@@ -121,4 +121,3 @@ class LoaderBase {
         this.updateBase();
     }
 }
-export default LoaderBase;

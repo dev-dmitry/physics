@@ -12,13 +12,20 @@ module.exports = (env, argv) => ({
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js|jsx|ts|tsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
                     cacheDirectory: true,
-                    presets: ['@babel/preset-env', '@babel/preset-react'],
-                    plugins: ['@babel/plugin-proposal-class-properties'],
+                    presets: [
+                        '@babel/preset-env',
+                        '@babel/preset-react',
+                        '@babel/typescript'
+                    ],
+                    plugins: [
+                        '@babel/plugin-proposal-class-properties',
+                        '@babel/proposal-object-rest-spread'
+                    ],
                 },
             },
             {
@@ -47,6 +54,6 @@ module.exports = (env, argv) => ({
         poll: true
     },
     resolve: {
-        extensions: ['*', '.js', '.jsx', 'scss'],
+        extensions: ['*', '.js', '.jsx', '.ts', '.tsx', 'scss'],
     },
 });

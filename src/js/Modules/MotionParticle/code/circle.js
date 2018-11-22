@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-class Circle {
+export class Circle {
     constructor(data, scene) {
         this.scene = scene;
         this.data = data;
@@ -44,5 +44,3 @@ class Circle {
         mesh.children[0].geometry = geometry;
     }
 }
-
-export default Circle;

@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-class AxisHelper {
+
+export class AxisHelper {
     constructor(axisLength, opacity) {
         this.object3d = new THREE.Object3D();
         this.axisLength = axisLength;
@@ -38,5 +39,3 @@ class AxisHelper {
         this.object3d.add(line);
     }
 }
-
-export default AxisHelper;

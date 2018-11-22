@@ -1,4 +1,6 @@
-class Data {
+import { Calc } from '../../../Core/Calc';
+
+export class Data {
     constructor() {
         this.coordinateQuarter = [90, 180, 270, 360];
         this.maxDuration = 15;
@@ -8,16 +10,16 @@ class Data {
             x: angleRotation,
             y: angleRotation,
             z: angleRotation,
-        }
+        };
     }
-    collect({charge, duration, induction, quantity, size}) {
+    collect({ charge, duration, induction, quantity, size }) {
         const gapsDegrees = 360 / quantity;
         const inductionValue = 5 / induction;
         let degree = 0;
         let options = [];
         for (let i = 0; i < quantity; i++) {
             let degreeThis = (degree += gapsDegrees);
-            const quarter = this.getCoordinateQuarter(degreeThis);
+            const quarter = Calc.getCoordinateQuarter(degreeThis);
             const rotateValue = this.getRotateValue(quarter, degreeThis);
             const radius = this.getRadius(duration, inductionValue);
             const { sign, signAngle } = this.getSigns(quarter);
@@ -36,29 +38,14 @@ class Data {
                 },
                 rotate: {
                     x: 0,
-                    y: -physics.inRad(rotateValue),
+                    y: -Calc.inRad(rotateValue),
                     z: 0,
                 },
-                angle: {...this.angle},
+                angle: { ...this.angle },
                 y: 0,
             });
         }
         return options;
-    }
-    getCoordinateQuarter(val) {
-        if (val > 90) {
-            let quarter = 0;
-            this.coordinateQuarter.forEach((el, i) => {
-                const next = i + 1;
-                if (this.coordinateQuarter[next] === undefined) return next;
-                if (val > el && val <= this.coordinateQuarter[next]) {
-                    return (quarter = next);
-                }
-            });
-            return quarter;
-        } else {
-            return 0;
-        }
     }
     getRadius(duration, induction) {
         return (duration / this.maxDuration) * this.maxRadius * induction;
@@ -78,8 +65,6 @@ class Data {
         }
     }
     getMathSin(value) {
-        return Math.sin(physics.inRad(value));
+        return Math.sin(Calc.inRad(value));
     }
 }
-
-export default Data;

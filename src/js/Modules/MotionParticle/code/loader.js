@@ -1,8 +1,8 @@
-import LoaderBase from '../../../Core/LoaderBase';
-import Particles from './Particles';
-import Data from './CollectData';
+import { LoaderBase } from '../../../Core/LoaderBase';
+import { Particles } from './Particles';
+import { Data } from './CollectData';
 
-class Loader extends LoaderBase {
+export class Loader extends LoaderBase {
     constructor() {
         super();
         this.collectData = new Data();
@@ -19,5 +19,3 @@ class Loader extends LoaderBase {
         this.particles.update();
     }
 }
-
-export default Loader;

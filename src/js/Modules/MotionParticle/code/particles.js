@@ -1,6 +1,6 @@
-import Circle from './Circle';
-import Particle from './Particle';
-class Particles {
+import { Circle } from './Circle';
+import { Particle } from './Particle';
+export class Particles {
     constructor(scene) {
         this.data = {
             props: [],
@@ -48,5 +48,3 @@ class Particles {
         });
     }
 }
-
-export default Particles;

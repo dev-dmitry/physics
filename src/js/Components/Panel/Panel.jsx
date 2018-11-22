@@ -12,13 +12,17 @@ class Panel extends Component {
     componentDidMount() {
         //TODO обращаться к элементу не через дом модель
         const main = document.querySelector('.app__main');
-        main.addEventListener('click', () => this.toggleTheory(true));
+        main.addEventListener('click', () => this.hideTheory());
     }
 
-    toggleTheory = off => {
-        const result = off ? false : !this.state.theoryBlock;
+    toggleTheory = () => {
         this.setState({
-            theoryBlock: result,
+            theoryBlock: !this.state.theoryBlock,
+        });
+    };
+    hideTheory = () => {
+        this.setState({
+            theoryBlock: false,
         });
     };
 
