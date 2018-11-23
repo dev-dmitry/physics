@@ -1,13 +1,13 @@
 export class Calc{
-     static inRad(num: number) {
+     static inRad(num: number): number {
         return (num * Math.PI) / 180;
     }
-    static getCoordinateQuarter(val: number) {
-        const coordinateQuarter = [90, 180, 270, 360];
+    static getCoordinateQuarter(val: number): number {
+        const coordinateQuarter: Array<number> = [90, 180, 270, 360];
         if (val > 90) {
-            let quarter = 0;
+            let quarter: number = 0;
             coordinateQuarter.forEach((el, i) => {
-                const next = i + 1;
+                const next: number = i + 1;
                 if (coordinateQuarter[next] === undefined) return next;
                 if (val > el && val <= coordinateQuarter[next]) {
                     return (quarter = next);
@@ -19,4 +19,3 @@ export class Calc{
         }
     }
 }
-

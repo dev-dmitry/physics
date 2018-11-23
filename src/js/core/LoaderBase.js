@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-let OrbitControls = require('three-orbit-controls')(THREE);
+import OrbitControlsFunc from 'three-orbit-controls';
+const OrbitControls = OrbitControlsFunc(THREE);
 import { AxisHelper } from './Utils/Axis';
 
 export class LoaderBase {
@@ -41,7 +42,6 @@ export class LoaderBase {
         }
     }
     setupDebug() {
-        //вынести в конкретный лоадер
         this.isGrid = true;
         this.isOrbit = true;
     }

@@ -14,7 +14,7 @@ class InformationBlock extends Component {
                     <div>
                         <span className="description__content-entity">Теория</span>
                         <h3 className="description__content-title">{this.props.theory.title}</h3>
-                        <span dangerouslySetInnerHTML={{ __html: this.props.theory.text }}></span>
+                        <span dangerouslySetInnerHTML={{ __html: this.props.theory.text }} />
                     </div>
                 </div>
             </div>
