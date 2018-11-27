@@ -11,6 +11,10 @@ export const data = {
             min: 1,
             max: 50,
         },
+        size: {
+            min: 0.05,
+            max: 0.5,
+        },
         duration: {
             min: 1,
             max: 10,
@@ -19,31 +23,46 @@ export const data = {
             min: 1,
             max: 20,
         },
-        size: {
-            min: 0.05,
-            max: 0.5,
-        },
     },
     fields: [
         {
-            type: 'input',
+            type: 'range',
             name: 'quantity',
             label: 'Колличество частиц, ед',
+            range: {
+                min: 1,
+                max: 50,
+                step: 1,
+            },
         },
         {
-            type: 'input',
+            type: 'range',
             name: 'size',
             label: 'Размер частиц',
+            range: {
+                min: 0.05,
+                max: 0.5,
+                step: 0.05,
+            },
         },
         {
-            type: 'input',
+            type: 'range',
             name: 'duration',
             label: 'Скорость, Мм/сек',
+            range: {
+                min: 1,
+                max: 10,
+                step: 1,
+            },
         },
         {
-            type: 'input',
+            type: 'range',
             name: 'induction',
             label: 'Индукция магнитного поля, 10 <sup>−5</sup> Тл',
+            range: {
+                min: 1,
+                max: 20,
+            },
         },
         {
             type: 'select',

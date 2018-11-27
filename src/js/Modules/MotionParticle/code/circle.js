@@ -39,7 +39,6 @@ export class Circle {
         this.updateGroupGeometry(mesh, geometry);
     }
     updateGroupGeometry(mesh, geometry) {
-        //TODO Функция должна возвращать новое значение, а не изменять данные, это не по ФП
         mesh.children[0].geometry.dispose();
         mesh.children[0].geometry = geometry;
     }
