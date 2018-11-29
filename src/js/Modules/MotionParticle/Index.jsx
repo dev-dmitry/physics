@@ -12,7 +12,6 @@ class MotionParticle extends Component {
             theory: data.theory,
             data: null,
             item: data.item,
-            confines: data.confines,
             fields: data.fields,
         };
         this.loader = null;
@@ -31,10 +30,10 @@ class MotionParticle extends Component {
             <div>
                 <Panel
                     title={this.state.title}
+                    data={this.state.data}
                     theory={this.state.theory}
                     updateData={this.updateData}
                     item={this.state.item}
-                    confines={this.state.confines}
                     fields={this.state.fields}
                 />
                 <Canvas />

@@ -37,7 +37,7 @@ class Panel extends Component {
                         </button>
                         <Settings
                             item={this.props.item}
-                            confines={this.props.confines}
+                            data={this.props.data}
                             fields={this.props.fields}
                             updateData={this.props.updateData}
                         />

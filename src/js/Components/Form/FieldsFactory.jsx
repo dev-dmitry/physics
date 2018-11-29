@@ -19,7 +19,6 @@ class FieldsFactory extends Component {
                         onBlur={this.props.onBlur}
                     />
                 );
-                break;
             case 'select':
                 return (
                     <Select
@@ -36,7 +35,7 @@ class FieldsFactory extends Component {
                         label={data.label}
                         type={data.type}
                         range={data.range}
-                        step={data.step || 1}
+                        step={data.step}
                         value={this.props.value}
                         onChange={this.props.onChange}
                         onBlur={this.props.onBlur}

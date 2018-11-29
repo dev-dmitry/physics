@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import FieldsFactory from '../Form/FieldsFactory';
 
 class Settings extends Component {
@@ -7,7 +8,6 @@ class Settings extends Component {
         this.mask = new RegExp(`[^0-9.]`, 'g');
         this.state = {
             item: this.props.item,
-            confines: this.props.confines,
             fields: this.props.fields,
         };
     }
@@ -20,11 +20,10 @@ class Settings extends Component {
         this.state.item[name] = this.getConfines(event.target.value, name);
         this.forceUpdate();
     };
-    init = () => {
-        this.props.updateData(this.state.item);
-    };
+    init = () => this.props.updateData(this.state.item);
+    stop = () => this.props.updateData(false);
     getConfines = (val, name) => {
-        const confines = this.state.confines[name];
+        const confines = this.state.fields[name].range;
         let value = Number(val.replace(this.mask, ''));
         if (confines) {
             if (value < confines.min) value = confines.min;
@@ -34,23 +33,36 @@ class Settings extends Component {
     };
 
     render() {
+        const fields = this.state.fields;
         return (
             <div className="settings">
                 <div className="settings__title">Параметры</div>
                 <div className="settings__field">
-                    {this.state.fields.map((key, i) => (
+                    {Object.keys(fields).map((key, i) => (
                         <FieldsFactory
                             key={i}
-                            data={key}
-                            value={this.state.item[key.name]}
-                            onChange={this.handleChange(key.name)}
-                            onBlur={this.onBlur(key.name)}
+                            data={fields[key]}
+                            value={this.state.item[key]}
+                            onChange={this.handleChange(key)}
+                            onBlur={this.onBlur(key)}
                         />
                     ))}
                 </div>
-                <button onClick={this.init} className="btn btn--secondary">
-                    Запустить
-                </button>
+                <ReactCSSTransitionGroup
+                    transitionName="button"
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}>
+                    <button onClick={this.init} className="settings__button btn btn--secondary">
+                        Запустить
+                    </button>
+                    {this.props.data ? (
+                        <button onClick={this.stop} className="settings__button btn btn--tertiary">
+                            Стоп
+                        </button>
+                    ) : (
+                        ''
+                    )}
+                </ReactCSSTransitionGroup>
             </div>
         );
     }

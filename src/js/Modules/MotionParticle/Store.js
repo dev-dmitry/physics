@@ -6,28 +6,9 @@ export const data = {
         induction: 5,
         size: 0.1,
     },
-    confines: {
+    fields: {
         quantity: {
-            min: 1,
-            max: 50,
-        },
-        size: {
-            min: 0.05,
-            max: 0.5,
-        },
-        duration: {
-            min: 1,
-            max: 10,
-        },
-        induction: {
-            min: 1,
-            max: 20,
-        },
-    },
-    fields: [
-        {
             type: 'range',
-            name: 'quantity',
             label: 'Колличество частиц, ед',
             range: {
                 min: 1,
@@ -35,9 +16,8 @@ export const data = {
                 step: 1,
             },
         },
-        {
+        size: {
             type: 'range',
-            name: 'size',
             label: 'Размер частиц',
             range: {
                 min: 0.05,
@@ -45,9 +25,8 @@ export const data = {
                 step: 0.05,
             },
         },
-        {
+        duration: {
             type: 'range',
-            name: 'duration',
             label: 'Скорость, Мм/сек',
             range: {
                 min: 1,
@@ -55,25 +34,23 @@ export const data = {
                 step: 1,
             },
         },
-        {
+        induction: {
             type: 'range',
-            name: 'induction',
             label: 'Индукция магнитного поля, 10 <sup>−5</sup> Тл',
             range: {
                 min: 1,
                 max: 20,
             },
         },
-        {
+        charge: {
             type: 'select',
             options: {
                 1: 'Положительный',
                 0: 'Отрицательный',
             },
-            name: 'charge',
             label: 'Заряд частиц',
         },
-    ],
+    },
     title: 'Движение частиц с одинаковым радиусом',
     theory: {
         title: 'Движение частиц с одинаковым радиусом',

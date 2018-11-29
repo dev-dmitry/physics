@@ -22,6 +22,7 @@ class Slider extends Component {
                     onBlur={this.props.onBlur}
                     min={this.props.range.min}
                     max={this.props.range.max}
+                    step={this.props.range.step}
                     className="form-control__slider"
                 />
             </div>
