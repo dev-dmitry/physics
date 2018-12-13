@@ -5,6 +5,7 @@ export class Particle {
     constructor(data, scene) {
         this.scene = scene;
         this.data = data;
+        this.axis = ['x', 'y', 'z']
     }
     createParticles(i) {
         const geometry = new THREE.SphereBufferGeometry(this.data.props[i].size, 16, 16);
@@ -15,25 +16,25 @@ export class Particle {
     }
     motionParticle(i) {
         let data = {
-            i: i,
+            i,
             radius: Math.abs(Calc.inRad(this.data.props[i].radius)),
             angle: this.data.props[i].angle,
-            charge: this.data.props[i].charge,
+            charge: this.data.props[i].charge ? 1 : -1,
         };
-        this.calculationMotion({ ...data, axis: 'x', horizontal: true });
-        this.calculationMotion({ ...data, axis: 'y', horizontal: false });
-        this.calculationMotion({ ...data, axis: 'z', horizontal: true });
+        this.axis.forEach( el => this.calculationMotion({ ...data, axis: el, horizontal: el !== 'y' }))
     }
     calculationMotion({ radius, angle, charge, horizontal, axis, i }) {
-        const square = this.getSquare(i, axis, horizontal);
-        const ordinate = horizontal ? Math.sin(angle[axis]) : Math.cos(angle[axis]);
-        const chargeValue = charge ? 1 : -1;
-        this.data.mesh[i].position[axis] += square * ordinate * chargeValue;
-        angle[axis] += radius * chargeValue;
+        const square = this.getSquare(this.data.props[i], axis, horizontal);
+        const ordinate = this.getOrdinate(angle[axis], radius, horizontal);
+        this.data.mesh[i].position[axis] += square * ordinate * charge;
+        angle[axis] += radius * charge;
     }
-    getSquare(i, axis, horizontal) {
-        const props = this.data.props[i];
-        const divider = horizontal ? props.position[axis] / Math.abs(props.radius) : 1;
+    getSquare(props, axis, horizontal) {
+        const divider = horizontal ? (props.position[axis] / Math.abs(props.radius)) : 1;
         return divider * Calc.inRad(props.radius ** 2);
+    }
+    getOrdinate(angle, radius, horizontal){
+        const angleOrdinate = angle + radius / 2;
+        return horizontal ? Math.sin(angleOrdinate) : Math.cos(angleOrdinate);
     }
 }
