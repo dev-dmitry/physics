@@ -9,6 +9,7 @@ export const data = {
     fields: {
         quantity: {
             type: 'range',
+            typeValue: 'int',
             label: 'Колличество частиц, ед',
             range: {
                 min: 1,
@@ -27,15 +28,17 @@ export const data = {
         },
         duration: {
             type: 'range',
+            typeValue: 'int',
             label: 'Скорость, Мм/сек',
             range: {
                 min: 1,
-                max: 10,
+                max: 8,
                 step: 1,
             },
         },
         induction: {
             type: 'range',
+            typeValue: 'int',
             label: 'Индукция магнитного поля, 10 <sup>−5</sup> Тл',
             range: {
                 min: 1,

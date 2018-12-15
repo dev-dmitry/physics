@@ -5,7 +5,7 @@ export class Particle {
     constructor(data, scene) {
         this.scene = scene;
         this.data = data;
-        this.axis = ['x', 'y', 'z']
+        this.axis = ['x', 'y', 'z'];
     }
     createParticles(i) {
         const geometry = new THREE.SphereBufferGeometry(this.data.props[i].size, 16, 16);
@@ -21,7 +21,9 @@ export class Particle {
             angle: this.data.props[i].angle,
             charge: this.data.props[i].charge ? 1 : -1,
         };
-        this.axis.forEach( el => this.calculationMotion({ ...data, axis: el, horizontal: el !== 'y' }))
+        this.axis.forEach(el =>
+            this.calculationMotion({ ...data, axis: el, horizontal: el !== 'y' }),
+        );
     }
     calculationMotion({ radius, angle, charge, horizontal, axis, i }) {
         const square = this.getSquare(this.data.props[i], axis, horizontal);
@@ -30,10 +32,10 @@ export class Particle {
         angle[axis] += radius * charge;
     }
     getSquare(props, axis, horizontal) {
-        const divider = horizontal ? (props.position[axis] / Math.abs(props.radius)) : 1;
+        const divider = horizontal ? props.position[axis] / Math.abs(props.radius) : 1;
         return divider * Calc.inRad(props.radius ** 2);
     }
-    getOrdinate(angle, radius, horizontal){
+    getOrdinate(angle, radius, horizontal) {
         const angleOrdinate = angle + radius / 2;
         return horizontal ? Math.sin(angleOrdinate) : Math.cos(angleOrdinate);
     }

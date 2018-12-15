@@ -5,7 +5,7 @@ import FieldsFactory from '../Form/FieldsFactory';
 class Settings extends Component {
     constructor(props) {
         super(props);
-        this.mask = new RegExp(`[^0-9.]`, 'g');
+        this.mask = new RegExp(`[^0-9.]`, 'g'); //TODO можно вынести
         this.state = {
             item: this.props.item,
             fields: this.props.fields,
@@ -23,13 +23,25 @@ class Settings extends Component {
     init = () => this.props.updateData(this.state.item);
     stop = () => this.props.updateData(false);
     getConfines = (val, name) => {
-        const confines = this.state.fields[name].range;
+        //TODO можно вынести
+        const data = this.state.fields[name];
+        const confines = data.range;
         let value = Number(val.replace(this.mask, ''));
+        value = this.checkTypeField(value, data.typeValue);
         if (confines) {
             if (value < confines.min) value = confines.min;
             if (value > confines.max) value = confines.max;
         }
         return value;
+    };
+    checkTypeField = (value, type) => {
+        //TODO можно вынести
+        switch (type) {
+            case 'int':
+                return Math.round(value);
+            default:
+                return value;
+        }
     };
 
     render() {
@@ -51,7 +63,8 @@ class Settings extends Component {
                 <ReactCSSTransitionGroup
                     transitionName="button"
                     transitionEnterTimeout={500}
-                    transitionLeaveTimeout={300}>
+                    transitionLeaveTimeout={300}
+                >
                     <button onClick={this.init} className="settings__button btn btn--secondary">
                         Запустить
                     </button>
