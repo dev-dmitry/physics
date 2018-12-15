@@ -27,7 +27,7 @@ export class Particle {
     }
     calculationMotion({ radius, angle, charge, horizontal, axis, i }) {
         const square = this.getSquare(this.data.props[i], axis, horizontal);
-        const ordinate = this.getOrdinate(angle[axis], radius, horizontal);
+        const ordinate = this.getOrdinate(angle[axis], radius * charge, horizontal);
         this.data.mesh[i].position[axis] += square * ordinate * charge;
         angle[axis] += radius * charge;
     }

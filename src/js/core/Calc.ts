@@ -1,4 +1,4 @@
-export class Calc{
+export class Calc {
     static inRad(num: number): number {
         return (num * Math.PI) / 180;
     }

@@ -71,6 +71,9 @@ export class LoaderBase {
             this.controls.enableDamping = true;
             this.controls.dampingFactor = 0.9;
             this.controls.enableKeys = false;
+            this.controls.enablePan = false;
+            this.controls.minDistance = 4;
+            this.controls.maxDistance = 500;
         }
     }
     setupHelpers() {
