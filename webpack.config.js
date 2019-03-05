@@ -15,18 +15,6 @@ module.exports = (env, argv) => ({
                 test: /\.(js|jsx|ts|tsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
-                query: {
-                    cacheDirectory: true,
-                    presets: [
-                        '@babel/preset-env',
-                        '@babel/preset-react',
-                        '@babel/typescript'
-                    ],
-                    plugins: [
-                        '@babel/plugin-proposal-class-properties',
-                        '@babel/proposal-object-rest-spread'
-                    ],
-                },
             },
             {
                 test: /\.scss$/,

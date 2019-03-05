@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
 class InformationBlock extends Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         return (
             <div className={`description ${this.props.show ? 'description-open' : ''}`}>

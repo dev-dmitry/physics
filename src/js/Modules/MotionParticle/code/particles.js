@@ -15,10 +15,10 @@ export class Particles {
     init(data) {
         this.countParticles = data.length;
         this.clear();
+        this.data.mesh = new Array(this.countParticles);
+        this.data.meshCircle = new Array(this.countParticles);
         for (let i = 0; i < this.countParticles; i++) {
             this.data.props.push(data[i]);
-            this.data.mesh.push(null);
-            this.data.meshCircle.push(null);
             this.particle.createParticles(i, this.data);
             this.circle.createCircle(i);
         }

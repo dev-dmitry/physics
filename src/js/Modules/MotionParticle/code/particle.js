@@ -15,7 +15,7 @@ export class Particle {
         this.motionParticle(i);
     }
     motionParticle(i) {
-        let data = {
+        const data = {
             i,
             radius: Math.abs(Calc.inRad(this.data.props[i].radius)),
             angle: this.data.props[i].angle,
@@ -25,7 +25,7 @@ export class Particle {
             this.calculationMotion({ ...data, axis: el, horizontal: el !== 'y' }),
         );
     }
-    calculationMotion({ radius, angle, charge, horizontal, axis, i }) {
+    calculationMotion({ i, radius, angle, charge, horizontal, axis }) {
         const square = this.getSquare(this.data.props[i], axis, horizontal);
         const ordinate = this.getOrdinate(angle[axis], radius * charge, horizontal);
         this.data.mesh[i].position[axis] += square * ordinate * charge;

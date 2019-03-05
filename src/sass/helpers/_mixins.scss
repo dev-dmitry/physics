@@ -6,22 +6,6 @@
             @content;
         }
     } @else {
-        @error 'Не указано значение для `#{$breakpoint}`. '
-         + 'Пожалуйста, убедитесь, что точка остановки объявлена в карте `$breakpoints`.';
-    }
-}
-
-@mixin placeholder {
-    &::-webkit-input-placeholder {
-        @content;
-    }
-    &:-moz-placeholder {
-        @content;
-    }
-    &::-moz-placeholder {
-        @content;
-    }
-    &:-ms-input-placeholder {
-        @content;
+        @error 'Не указано значение для `#{$breakpoint}`. ';
     }
 }

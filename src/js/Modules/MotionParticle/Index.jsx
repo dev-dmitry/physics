@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Canvas from '../../Components/Canvas/Canvas';
 import Panel from '../../Components/Panel/Panel';
 import { Loader } from './Code/Loader';
-import { data } from './Store';
+import { data } from '../../Store/MotionParticle/Index';
 
 class MotionParticle extends Component {
     constructor(props) {
