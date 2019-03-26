@@ -3,7 +3,7 @@ import MotionParticle from './modules/MotionParticle/Index';
 
 class App extends Component {
     render() {
-        return <MotionPartiocle/>  ;
+        return <MotionPartiocle/>;
     }
 }
 export default App;
