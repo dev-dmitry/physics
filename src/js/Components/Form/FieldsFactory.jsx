@@ -4,9 +4,6 @@ import Select from './Fields/Select';
 import Slider from './Fields/Slider';
 
 class FieldsFactory extends Component {
-    constructor(props) {
-        super(props);
-    }
     definitionTypeField = () => {
         const data = this.props.data;
         switch (data.type) {
