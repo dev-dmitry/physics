@@ -4,13 +4,10 @@ import FieldsFactory from '../Form/FieldsFactory';
 import { Validation } from '../Form/Validation';
 
 class Settings extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            item: this.props.item,
-            fields: this.props.fields,
-        };
-    }
+    state = {
+        item: this.props.item,
+        fields: this.props.fields,
+    };
 
     handleChange = name => event => {
         this.state.item[name] = event.target.value;

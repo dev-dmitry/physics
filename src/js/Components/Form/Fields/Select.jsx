@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import Label from '../Label';
 class Select extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         const options = this.props.options;
