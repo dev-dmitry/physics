@@ -3,14 +3,10 @@ import Settings from './Settings';
 import InformationBlock from './InformationBlock';
 
 class Panel extends Component {
-    constructor(props, context) {
-        super(props, context);
-        this.state = {
-            theoryBlock: false,
-        };
-    }
+    state = {
+        theoryBlock: false,
+    };
     componentDidMount() {
-        //TODO обращаться к элементу не через дом модель
         const main = document.querySelector('.app__main');
         main.addEventListener('click', () => this.hideTheory());
     }
